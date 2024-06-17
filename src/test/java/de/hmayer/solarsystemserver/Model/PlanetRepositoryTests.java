@@ -1,0 +1,78 @@
+package de.hmayer.solarsystemserver.Model;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+
+import de.hmayer.solarsystemserver.model.PlanetRepository;
+import de.hmayer.solarsystemserver.model.Planet;
+
+class PlanetRepositoryTests {
+
+    @Test
+    void initTest() {
+
+        PlanetRepository sut = new PlanetRepository();
+
+        assertEquals(9, sut.findAll().size());
+    }
+
+    @Test
+    void findPlanetByIdTest_successfull() {
+
+        PlanetRepository sut = new PlanetRepository();
+
+        Optional<Planet> result = sut.findById(3);
+
+        assertTrue(result.isPresent());
+        Planet pResult = result.get();
+
+        assertEquals("Earth", pResult.getName());
+        assertEquals(3, pResult.getId());
+    }
+
+    @Test
+    void findPlanetByIdTest_notFound() {
+
+        PlanetRepository sut = new PlanetRepository();
+
+  
+        Optional<Planet> result = sut.findById(11);
+
+        assertFalse(result.isPresent());
+
+    }
+
+    @Test
+    void deletePlanetByIDTests_wrongID_NothingDeleted() {
+
+        PlanetRepository sut = new PlanetRepository();
+
+  
+        sut.delete(12938);
+
+        assertEquals(9, sut.findAll().size());
+    }
+
+    @Test
+    void deletePlanetByIDTests_correctID_Deleted() {
+
+        PlanetRepository sut = new PlanetRepository();
+
+  
+        Optional<Planet> planet = sut.findById(9);
+
+        sut.delete(9);
+
+        assertEquals(8, sut.findAll().size());
+        assertFalse(sut.findById(9).isPresent());
+
+        sut.add(planet.get());
+
+    }
+
+}
