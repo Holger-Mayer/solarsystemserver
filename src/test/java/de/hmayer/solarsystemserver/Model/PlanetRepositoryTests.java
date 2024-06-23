@@ -14,7 +14,7 @@ import de.hmayer.solarsystemserver.model.Planet;
 class PlanetRepositoryTests {
 
     @Test
-    void initTest() {
+    void SOL_T33_initTest() {
 
         PlanetRepository sut = new PlanetRepository();
 
@@ -22,7 +22,7 @@ class PlanetRepositoryTests {
     }
 
     @Test
-    void findPlanetByIdTest_successfull() {
+    void SOL_T34_findPlanetByIdTest_successfull() {
 
         PlanetRepository sut = new PlanetRepository();
 
@@ -36,7 +36,7 @@ class PlanetRepositoryTests {
     }
 
     @Test
-    void findPlanetByIdTest_notFound() {
+    void SOL_T35_findPlanetByIdTest_notFound() {
 
         PlanetRepository sut = new PlanetRepository();
 
@@ -48,7 +48,7 @@ class PlanetRepositoryTests {
     }
 
     @Test
-    void deletePlanetByIDTests_wrongID_NothingDeleted() {
+    void SOL_T36_deletePlanetByIDTests_wrongID_NothingDeleted() {
 
         PlanetRepository sut = new PlanetRepository();
 
@@ -59,7 +59,7 @@ class PlanetRepositoryTests {
     }
 
     @Test
-    void deletePlanetByIDTests_correctID_Deleted() {
+    void SOL_T37_deletePlanetByIDTests_correctID_Deleted() {
 
         PlanetRepository sut = new PlanetRepository();
 

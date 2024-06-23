@@ -13,7 +13,7 @@ import de.hmayer.solarsystemserver.model.Moon;
 class MoonTests {
 
     @Test
-    void InitializeMoon() {
+    void SOL_T48_InitializeMoon() {
         Moon sut = new Moon();
 
         assertNull(sut.getId());
@@ -27,7 +27,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetId() {
+    void SOL_T49_setGetId() {
         Integer testValue = 13;
 
         Moon sut = new Moon();
@@ -37,7 +37,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetName() {
+    void SOL_T50_setGetName() {
         String testValue = "Deimos";
 
         Moon sut = new Moon();
@@ -47,7 +47,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetPlanetId() {
+    void SOL_T51_setGetPlanetId() {
         Integer testValue = 13;
 
         Moon sut = new Moon();
@@ -57,7 +57,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetMass() {
+    void SOL_T52_setGetMass() {
         String testValue = "1.22e4";
 
         Moon sut = new Moon();
@@ -67,7 +67,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetRadius() {
+    void SOL_T53_setGetRadius() {
         String testValue = "1.22e4";
 
         Moon sut = new Moon();
@@ -77,7 +77,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetDensity() {
+    void SOL_T54_setGetDensity() {
         String testValue = "1.22e4";
 
         Moon sut = new Moon();
@@ -87,7 +87,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetMagnitude() {
+    void SOL_T55_setGetMagnitude() {
         String testValue = "1.22e4";
 
         Moon sut = new Moon();
@@ -97,7 +97,7 @@ class MoonTests {
     }
 
     @Test
-    void setGetAlbedo() {
+    void SOL_T56_setGetAlbedo() {
         String testValue = "1.22e4";
 
         Moon sut = new Moon();
@@ -107,7 +107,7 @@ class MoonTests {
     }
 
     @Test
-    void loadStringList_toShort() {
+    void SOL_T57_loadStringList_toShort() {
         List<String> testValues = List.of("1", "Alpha", "10.0");
 
         Moon sut = new Moon();
@@ -126,7 +126,7 @@ class MoonTests {
     }
 
     @Test
-    void loadStringList_OK() {
+    void SOL_T58_loadStringList_OK() {
         List<String> testValues = List.of("5", "Ananke", "0.0020", "14", "2.6", "19.1R", "0.04");
 
         Moon sut = new Moon();
@@ -144,7 +144,7 @@ class MoonTests {
     }
 
     @Test
-    void loadStringList_ToLong() {
+    void SOL_T59_loadStringList_ToLong() {
         List<String> testValues = List.of("5", "Ananke", "0.0020", "14", "2.6", "19.1R", "0.04", "17212");
 
         Moon sut = new Moon();
@@ -162,7 +162,7 @@ class MoonTests {
     }
 
     @Test
-    void loadStringList_PlanetID_NotInteger() {
+    void SOL_T60_loadStringList_PlanetID_NotInteger() {
         List<String> testValues = List.of("P5", "Ananke", "0.0020", "14", "2.6", "19.1R", "0.04");
 
         Moon sut = new Moon();

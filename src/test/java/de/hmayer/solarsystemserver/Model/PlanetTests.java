@@ -15,7 +15,7 @@ class PlanetTests {
     
 
      @Test
-    void InitializeMoon() {
+    void SOL_T6_InitializePlanet() {
         Planet sut = new Planet();
 
         assertNull(sut.getId());
@@ -33,7 +33,7 @@ class PlanetTests {
     }
 
       @Test
-    void setGetId() {
+    void SOL_T7_setGetId() {
         Integer testValue = 13;
 
         Planet sut = new Planet();
@@ -43,7 +43,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetName() {
+    void SOL_T8_setGetName() {
         String testValue = "Mars";
 
         Planet sut = new Planet();
@@ -54,7 +54,7 @@ class PlanetTests {
 
 
     @Test
-    void setGetDiameter() {
+    void SOL_T9_setGetDiameter() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -64,7 +64,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetMass() {
+    void SOL_T10_setGetMass() {
         String testValue = "1.0E37";
 
         Planet sut = new Planet();
@@ -74,7 +74,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetInclination() {
+    void SOL_T11_setGetInclination() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -84,7 +84,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetEccentricity() {
+    void SOL_T12_setGetEccentricity() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -94,7 +94,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetSemiMajorAxis() {
+    void SOL_T13_setGetSemiMajorAxis() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -104,7 +104,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetSurfaceGravity() {
+    void SOL_T14_setGetSurfaceGravity() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -114,7 +114,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetOrbitalPeriod() {
+    void SOL_T15_setGetOrbitalPeriod() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -124,7 +124,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetSiderealRotation() {
+    void SOL_T16_setGetSiderealRotation() {
         Double testValue = 2.0;
 
         Planet sut = new Planet();
@@ -134,7 +134,7 @@ class PlanetTests {
     }
 
     @Test
-    void setGetSatellites() {
+    void SOL_T17_setGetSatellites() {
         Integer testValue = 3;
 
         Planet sut = new Planet();
@@ -144,7 +144,7 @@ class PlanetTests {
     }
 
       @Test
-    void loadStringList_toShort() {
+    void SOL_T18_loadStringList_toShort() {
         List<String> testValues = List.of("3", "Earth", "12756.3");
      
         Planet sut = new Planet();
@@ -166,7 +166,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_OK() {
+    void SOL_T19_loadStringList_OK() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887"," 24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -187,7 +187,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_ID_NotInteger() {
+    void SOL_T_20_loadStringList_ID_NotInteger() {
         List<String> testValues = List.of("A5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887"," 24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -200,7 +200,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_Diameter_NotDouble() {
+    void SOL_T_21_loadStringList_Diameter_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "Q142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887"," 24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -213,7 +213,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_Inclination_NotDouble() {
+    void SOL_T22_loadStringList_Inclination_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "W1.3053", "0.04838624", "5.202887"," 24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -226,7 +226,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_Eccentricity_NotDouble() {
+    void SOL_T23_loadStringList_Eccentricity_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "W0.04838624", "5.202887"," 24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -239,7 +239,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_SemiMajorAxis_NotDouble() {
+    void SOL_T_24_loadStringList_SemiMajorAxis_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "W5.202887"," 24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -252,7 +252,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_SurfaceGravity_NotDouble() {
+    void SOL_T_25_loadStringList_SurfaceGravity_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887","W24.79","11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -265,7 +265,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_OrbitalPeriod_NotDouble() {
+    void SOL_T_26_loadStringList_OrbitalPeriod_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887","24.79","W11.86","0.4135","63");
    
         Planet sut = new Planet();
@@ -278,7 +278,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_SiderealRotation_NotDouble() {
+    void SOL_T_27_loadStringList_SiderealRotation_NotDouble() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887","24.79","11.86","W0.4135","63");
    
         Planet sut = new Planet();
@@ -291,7 +291,7 @@ class PlanetTests {
     }
 
     @Test
-    void loadStringList_Satellites_IgnoreNotInteger() {
+    void SOL_T_28_loadStringList_Satellites_IgnoreNotInteger() {
         List<String> testValues = List.of("5", "Jupiter", "142984", "1.899×10^27", "1.3053", "0.04838624", "5.202887","24.79","11.86","0.4135","W63");
    
         Planet sut = new Planet();

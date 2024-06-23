@@ -16,7 +16,7 @@ import de.hmayer.solarsystemserver.model.Moon;
 class MoonRepositoryTests {
     
     @Test
-    void initTest() {
+    void SOL_T38_initTest() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -25,7 +25,7 @@ class MoonRepositoryTests {
 
 
 
-    @Test void findMoonByIdTest_successfull() {
+    @Test void SOL_T39_findMoonByIdTest_successfull() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -39,7 +39,7 @@ class MoonRepositoryTests {
     }
 
 
-    @Test void findMoonByIdTest_notFound() {
+    @Test void SOL_T40_findMoonByIdTest_notFound() {
 
         Repository<Moon> sut = new Repository<Moon>("Moons.csv",moondata -> {
             Moon moon = new Moon();
@@ -52,7 +52,7 @@ class MoonRepositoryTests {
        
     }
 
-    @Test void findMoonByPlanetIdTest_PlanetnotFound() {
+    @Test void SOL_T41_findMoonByPlanetIdTest_PlanetnotFound() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -61,7 +61,7 @@ class MoonRepositoryTests {
         assertEquals(0,result.size());
     }
 
-    @Test void findMoonByPlanetIdTest_NoMoons() {
+    @Test void SOL_T42_findMoonByPlanetIdTest_NoMoons() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -70,7 +70,7 @@ class MoonRepositoryTests {
         assertEquals(0,result.size());
     }
 
-    @Test void findMoonByPlanetIdTest_MoonsFound() {
+    @Test void SOL_T43_findMoonByPlanetIdTest_MoonsFound() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -83,7 +83,7 @@ class MoonRepositoryTests {
 
 
     @Test
-    void deleteMoonByIDTests_wrongID_NothingDeleted() {
+    void SOL_T44_deleteMoonByIDTests_wrongID_NothingDeleted() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -93,7 +93,7 @@ class MoonRepositoryTests {
     }
 
     @Test
-    void deleteMoonByIDTests_correctID_Deleted() {
+    void SOL_T45_deleteMoonByIDTests_correctID_Deleted() {
 
         MoonRepository sut = new MoonRepository();
 
@@ -109,13 +109,23 @@ class MoonRepositoryTests {
     }
 
     @Test
-    void deleteMoonsFromPlanet_correct_Deleted() {
+    void SOL_T46_deleteMoonsFromPlanet_correct_Deleted() {
 
         MoonRepository sut = new MoonRepository();
 
         sut.deleteByPlanetId(4);
         assertEquals(175, sut.findAll().size());
         assertEquals(0,sut.findByPlanetId(4).size());
+    }
+
+    @Test
+    void SOL_T47_deleteMoonsFromPlanet_invalid_Planetid() {
+
+        MoonRepository sut = new MoonRepository();
+
+        sut.deleteByPlanetId(42365);
+        assertEquals(177, sut.findAll().size());
+   
     }
 }
 
