@@ -4,24 +4,27 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 <body>
+
     <div class="container">
+      <a id="deleteplanet" class="btn btn-primary" th:href="@{/delete_planet/__${planet.id}__}">Delete</a>
         <h1 class="text-center mt-5" th:text="${planet.name}"></h1>
         
         <table class="table mx-auto w-50">
             <tbody>
-             <tr><td>Diameter:</td><td th:text="${planet.diameter}"></td></tr> 
-             <tr><td>Mass:</td><td th:text="${planet.mass}"></td></tr> 
-             <tr><td>Inclination:</td><td th:text="${planet.Inclination}"></td></tr> 
-             <tr><td>Eccentricity:</td><td th:text="${planet.Eccentricity}"></td></tr> 
-             <tr><td>Semimajor Axis:</td><td th:text="${planet.SemiMajorAxis}"></td></tr> 
-             <tr><td>Surface Gravity:</td><td th:text="${planet.surfaceGravity}"></td></tr> 
-             <tr><td>Orbital Period:</td><td th:text="${planet.orbitalPeriod}"></td></tr> 
-             <tr><td>Sidereal Rotation:</td><td th:text="${planet.SiderealRotation}"></td></tr> 
+             <tr><td>Diameter:</td><td id="diameter" th:text="${planet.diameter}"></td></tr> 
+             <tr><td>Mass:</td><td id="mass" th:text="${planet.mass}"></td></tr> 
+             <tr><td>Inclination:</td><td id="inclination" th:text="${planet.Inclination}"></td></tr> 
+             <tr><td>Eccentricity:</td><td id="eccentricity" th:text="${planet.Eccentricity}"></td></tr> 
+             <tr><td>Semimajor Axis:</td><td id="semimajoraxis" th:text="${planet.SemiMajorAxis}"></td></tr> 
+             <tr><td>Surface Gravity:</td><td id="surfacegravity" th:text="${planet.surfaceGravity}"></td></tr> 
+             <tr><td>Orbital Period:</td><td id="orbitalperiod" th:text="${planet.orbitalPeriod}"></td></tr> 
+             <tr><td>Sidereal Rotation:</td><td id="siderealrotation" th:text="${planet.SiderealRotation}"></td></tr> 
              </tbody>
         </table>
 
 
-        <h3 class="text-center mt-5">Moons</h3>
+        <h3 class="text-center mt-5">Moons  <a id="addmoon" class="btn btn-primary" th:href="@{/addmoon/__${planet.id}__}">Add moon</a></h3>
+       
         <div row justify-content-center>
             <div class="col-auto">
             <table class="table mx-auto w-25">
@@ -35,6 +38,7 @@
             </table>
             </div>
             <a href="/home">Back</a>
+   
    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

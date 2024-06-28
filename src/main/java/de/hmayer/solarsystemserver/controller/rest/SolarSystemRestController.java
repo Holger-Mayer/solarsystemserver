@@ -39,6 +39,14 @@ public class SolarSystemRestController {
         this.moonRepository = moonRepository;
     }
 
+    @GetMapping("/test/reset")
+    public String resetData() {
+
+        planetRepository.reload();
+        moonRepository.reload();
+        return "";
+    }
+
     @GetMapping("/planets")
     public List<NamedObject> getPlanets() {
 

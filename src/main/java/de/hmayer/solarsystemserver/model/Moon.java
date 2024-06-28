@@ -2,15 +2,17 @@ package de.hmayer.solarsystemserver.model;
 
 import java.util.List;
 
+import de.hmayer.solarsystemserver.model.dao.MoonDao;
+
 /**
- *  The Moon class describes core parameter of a natural satellite of a planet.
- *  The data can be loaded from an array of string.
+ * The Moon class describes core parameter of a natural satellite of a planet.
+ * The data can be loaded from an array of string.
  * 
  * The Moon class is identifiable so each moon has a unique id;
  * 
  * @author Holger Mayer
  */
-public class Moon implements Identifiable{
+public class Moon implements Identifiable {
     private Integer id;
     private String name;
     private Integer planetId;
@@ -28,6 +30,18 @@ public class Moon implements Identifiable{
         this.id = id;
         this.name = name;
         this.planetId = planetID;
+    }
+
+    public Moon(MoonDao moonDao) {
+
+        this.name = moonDao.getName();
+        this.planetId = toInteger(moonDao.getPlanetid());
+        this.mass = moonDao.getMass();
+        this.radius = moonDao.getRadius();
+        this.density = moonDao.getDensity();
+        this.magnitude = moonDao.getMagnitude();
+        this.albedo = moonDao.getAlbedo();
+
     }
 
     public Integer getId() {
@@ -116,7 +130,7 @@ public class Moon implements Identifiable{
 
             switch (index) {
                 case 0:
-                    this.setPlanetId(Integer.parseInt(string));
+                    this.setPlanetId(toInteger(string));
                     break;
                 case 1:
                     this.setName(string);
@@ -142,6 +156,14 @@ public class Moon implements Identifiable{
 
             index++;
         }
+    }
 
+    private Integer toInteger(String string) {
+
+        try {
+            return Integer.parseInt(string);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

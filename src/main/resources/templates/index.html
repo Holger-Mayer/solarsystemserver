@@ -10,6 +10,7 @@
       <div class="col-auto">
       <table class="table mx-auto w-25">
         <tbody>
+          <tr><td class="text-center"> <a href="/addplanet" class="btn btn-primary">Add planet</a></td></tr>
           <tr th:each="planet : ${planets}">
             <td class="text-center">
             <a th:href="@{/planets/__${planet.id}__}" th:text="${planet.name}"/></a>

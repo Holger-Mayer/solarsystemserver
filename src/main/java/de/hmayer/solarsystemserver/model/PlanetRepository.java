@@ -19,4 +19,13 @@ public class PlanetRepository extends Repository<Planet> {
 
     }
 
+    public void reload(){
+        this.deleteAll();
+        this.load("Planets.csv", planetdata -> {
+            Planet planet = new Planet();
+            planet.load(planetdata);
+            return planet;
+        });
+    }
+
 }

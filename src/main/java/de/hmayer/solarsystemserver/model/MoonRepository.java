@@ -30,6 +30,22 @@ public class MoonRepository extends Repository<Moon> {
 
     }
 
+    public void reload(){
+        this.deleteAll();
+        this.load("Moons.csv", moondata -> {
+            Moon moon = new Moon();
+            moon.load(moondata);
+            return moon;
+        });
+
+          // We need to setup the unique id's after loading
+
+          Integer index = 0;
+          for (Moon moon : findAll()) {
+              moon.setId(index++);
+              
+          }
+    }
 
     /**
      * Additional find function collecting all moons for a given planet

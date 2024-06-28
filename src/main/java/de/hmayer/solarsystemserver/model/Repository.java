@@ -33,13 +33,16 @@ public class Repository<T extends Identifiable> {
     public Repository(String fileName, Function<List<String>, T> recordHandler) {
         this.elements = new ArrayList<>();
 
+        load(fileName, recordHandler);
+    }
+
+    public void load(String fileName, Function<List<String>, T> recordHandler){
         try {
             loadCSVData(fileName, recordHandler);
         } catch (Exception e) {
              logger.error(e.getLocalizedMessage());
         }
     }
-
 
     public List<T> findAll() {
         return elements;
@@ -58,6 +61,10 @@ public class Repository<T extends Identifiable> {
         if (elementToRemove.isPresent()) {
             this.elements.remove(elementToRemove.get());
         }
+    }
+
+    public void deleteAll(){
+        elements.clear();
     }
 
     public void add(T element) {

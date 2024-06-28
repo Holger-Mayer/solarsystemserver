@@ -2,6 +2,8 @@ package de.hmayer.solarsystemserver.model;
 
 import java.util.List;
 
+import de.hmayer.solarsystemserver.model.dao.PlanetDao;
+
 /**
  *  This class represents a planet and its parameter.
  *  Hint : The number of satellites is currently not used.
@@ -31,6 +33,21 @@ public class Planet implements Identifiable{
         this.diameter = diameter;
     }
     
+    public Planet( PlanetDao planetDao){
+        
+        this.id = toInteger(planetDao.getId());
+        this.name = planetDao.getName();
+        this.diameter = toDouble(planetDao.getDiameter());
+        this.mass = planetDao.getMass();
+        this.inclination = toDouble(planetDao.getInclination());
+        this.eccentricity = toDouble(planetDao.getEccentricity());
+        this.semiMajorAxis = toDouble(planetDao.getSemimajoraxis());
+        this.surfaceGravity = toDouble(planetDao.getSurfacegravity());
+        this.orbitalPeriod = toDouble(planetDao.getOrbitalperiod());
+        this.siderealRotation = toDouble(planetDao.getSiderealrotation());
+        this.satellites = toInteger(planetDao.getSatellites());
+
+    }
 
     public Integer getId() {
         return id;
@@ -136,34 +153,34 @@ public class Planet implements Identifiable{
 
             switch (index) {
                 case 0:
-                    this.setId(Integer.parseInt(string));
+                    this.setId(toInteger(string));
                     break;
                 case 1:
                     this.setName(string);
                     break;
                 case 2:
-                this.setDiameter(Double.parseDouble(string));
+                this.setDiameter(toDouble(string));
                     break;
                 case 3:
                 this.setMass(string);
                     break;
                 case 4:
-                this.setInclination(Double.parseDouble(string));
+                this.setInclination(toDouble(string));
                     break;
                 case 5:
-                this.setEccentricity(Double.parseDouble(string));
+                this.setEccentricity(toDouble(string));
                     break;
                 case 6:
-                this.setSemiMajorAxis(Double.parseDouble(string));
+                this.setSemiMajorAxis(toDouble(string));
                     break;
                 case 7:
-                this.setSurfaceGravity(Double.parseDouble(string));
+                this.setSurfaceGravity(toDouble(string));
                     break;
                 case 8:
-                this.setOrbitalPeriod(Double.parseDouble(string));
+                this.setOrbitalPeriod(toDouble(string));
                     break;
                 case 9:
-                this.setSiderealRotation(Double.parseDouble(string));
+                this.setSiderealRotation(toDouble(string));
                     break;
                 case 10:
                 this.setSatellites(0);
@@ -175,6 +192,34 @@ public class Planet implements Identifiable{
 
             index++;
         }
+
+    }
+
+
+    private Double toDouble(String string){
+        
+        try {
+        return Double.parseDouble(string);
+        } catch (Exception e){
+            return 0.0;
+        }
+    }
+
+    private Integer toInteger(String string){
+        
+        try {
+        return Integer.parseInt(string);
+        } catch (Exception e){
+            return 0;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Planet [id=" + id + ", name=" + name + ", diameter=" + diameter + ", mass=" + mass + ", inclination="
+                + inclination + ", eccentricity=" + eccentricity + ", semiMajorAxis=" + semiMajorAxis
+                + ", surfaceGravity=" + surfaceGravity + ", orbitalPeriod=" + orbitalPeriod + ", siderealRotation="
+                + siderealRotation + ", satellites=" + satellites + "]";
     }
     
 }
