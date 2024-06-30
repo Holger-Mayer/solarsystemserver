@@ -136,27 +136,52 @@ public class SolarSystemController {
     @PostMapping("/addplanet")
     public String addPlanetFormResult(@ModelAttribute("planet") PlanetDao planetDao, Model model) {
 
-        if (planetDao.getName().trim().length() <= 0 || planetDao.getId().trim().length() <= 0) {
-            model.addAttribute("planet", planetDao);
-            return "add_planet_form.html";
-        }
 
-        logger.debug(planetDao.toString());
+        try {
+            Planet planet = new Planet(planetDao);
+            planetRepository.add(planet);
+    
+            if (planet.getName().trim().length() <= 0) {
+                model.addAttribute("planet", planetDao);
+                return "add_planet_form.html";
+            }
+    
+            } catch (Exception e) {
+                model.addAttribute("planet", planetDao);
+                return "add_planet_form.html";
+            }
 
-        Planet planet = new Planet(planetDao);
-        planetRepository.add(planet);
-
+    
         model.addAttribute("planets", planetRepository.findAll());
         return "/index.html";
     }
 
-    @DeleteMapping("/delete_planet/{id}")
-    public String deletePlanet(@PathVariable("id") Integer id) {
-        return HOME_PATH;
+    @GetMapping("/delete_planet/{id}")
+    public String deletePlanet(@PathVariable("id") Integer id, Model model) {
+        Optional<Planet> planet = planetRepository.findById(id);
+    
+        if (planet.isPresent()){
+            moonRepository.deleteByPlanetId(id);
+            planetRepository.delete(id);
+        }
+
+        model.addAttribute("planets", planetRepository.findAll());
+        return "redirect:/home";
     }
 
-    @DeleteMapping("/delete_moon/{id}")
-    public String deleteMoon(@PathVariable("id") Integer id) {
-        return HOME_PATH;
+    @GetMapping("/delete_moon/{id}")
+    public String deleteMoon(@PathVariable("id") Integer id, Model model) {
+
+        Optional<Moon> moon = moonRepository.findById(id);
+    
+        if (moon.isPresent()){
+            Integer planetID = moon.get().getPlanetId();
+            moonRepository.delete(id);
+
+            return "redirect:/planets/" + planetID;
+        }
+
+        model.addAttribute("planets", planetRepository.findAll());
+        return "/index.html";
     }
 }

@@ -167,19 +167,16 @@ class MoonTests {
 
         Moon sut = new Moon();
 
-        assertThrows(
-                java.lang.NumberFormatException.class,
-                () -> sut.load(testValues),
-                "Expected load() to throw, but it didn't");
+        sut.load(testValues);
 
         assertNull(sut.getId());
-        assertNull(sut.getName());
-        assertNull(sut.getPlanetId());
-        assertNull(sut.getMass());
-        assertNull(sut.getRadius());
-        assertNull(sut.getDensity());
-        assertNull(sut.getMagnitude());
-        assertNull(sut.getAlbedo());
+        assertEquals("Ananke", sut.getName());
+        assertEquals(0,sut.getPlanetId());
+        assertEquals("0.0020", sut.getMass());
+        assertEquals("14", sut.getRadius());
+        assertEquals("2.6", sut.getDensity());
+        assertEquals("19.1R", sut.getMagnitude());
+        assertEquals("0.04", sut.getAlbedo());
 
     }
 }
