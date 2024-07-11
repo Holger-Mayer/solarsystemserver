@@ -1,0 +1,100 @@
+        <table>
+            <tbody>
+              <tr>
+                <td><label for="id" class="form-label">Position:</label></td>
+                <td><input type="text" class="form-control" th:name="id" th:field="*{id}" aria-describedby="positionHelp">
+                  <div id="positionHelp" class="form-text">Please enter numeric position of the planet.</div>
+                </td>
+              </tr>
+              <tr >
+                <td ><label for="name" class="form-label">Name:</label></td>
+                <td><input type="text" class="form-control" th:name="name" th:field="*{name}" aria-describedby="nameHelp">
+                  <div id="nameHelp" class="form-text">Please enter the planets name.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="diameter" class="form-label">Diameter:</label></td>
+                <td><input type="text" class="form-control" th:name="diameter" th:field="*{diameter}"  aria-describedby="diameterHelp">
+                  <div id="diameterHelp" class="form-text">Please enter the planets diameter as number in KM.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="mass" class="form-label">Mass:</label></td>
+                <td><input type="text" class="form-control" th:name="mass" th:field="*{mass}" aria-describedby="massHelp">
+                  <div id="massHelp" class="form-text">Please enter the planets mass as number in metric tons.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="inclination" class="mt-3 form-label">Inclination:</label></td>
+                <td><input type="text" class="mt-3 form-control" th:name="inclination" th:field="*{inclination}" >
+                </td>
+              </tr>
+              <tr>
+                <td><label for="eccentricity" class="mt-3 form-label">Eccentricity:</label></td>
+                <td><input type="text" class="mt-3 form-control" th:name="eccentricity" th:field="*{eccentricity}" >
+                </td>
+              </tr>
+              <tr>
+                <td><label for="semimajoraxis" class="mt-3 form-label">Semimajor Axis:</label></td>
+                <td><input type="text" class="mt-3 form-control" th:name="semimajoraxis" th:field="*{semimajoraxis}" >
+                </td>
+              </tr>
+              <tr>
+                <td><label for="surfacegravity" class="mt-3 form-label">Surface Gravity:</label></td>
+                <td><input type="text" class="mt-3 form-control" th:name="surfacegravity" th:field="*{surfacegravity}" >
+                </td>
+              </tr>
+              <tr>
+                <td><label for="orbitalperiod" class="mt-3 form-label">Orbital Period:</label></td>
+                <td><input type="text" class="mt-3 form-control" th:name="orbitalperiod" th:field="*{orbitalperiod}" >
+                </td>
+              </tr>
+              <tr >
+                <td><label for="siderealrotation" class="mt-3 form-label">Sidereal Rotation:</label></td>
+                <td><input type="text" class="mt-3 form-control" th:name="siderealrotation" th:field="*{siderealrotation}" >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          --------  Moon
+          <table>
+            <tbody>
+               <tr><td><input type="hidden" name="planetId" th:value="${planet.id}" /></td><td></td></tr>
+               <tr >
+                <td ><label for="name" class="form-label">Name:</label></td>
+                <td><input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+                  <div id="nameHelp" class="form-text">Please enter the moons name.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="radius" class="form-label">Radius:</label></td>
+                <td><input type="text" class="form-control" id="radius" aria-describedby="radiusHelp">
+                  <div id="dradiusHelp" class="form-text">Please enter the moons radius as number in KM.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="mass" class="form-label">Mass:</label></td>
+                <td><input type="text" class="form-control" id="mass" aria-describedby="massHelp">
+                  <div id="massHelp" class="form-text">Please enter the moons mass as number in metric tons.</div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="density" class="mt-3 form-label">Density:</label></td>
+                <td><input type="text" class="mt-3 form-control" id="density">
+                </td>
+              </tr>
+              <tr>
+                <td><label for="magnitude" class="mt-3 form-label">Magnitude:</label></td>
+                <td><input type="text" class="mt-3 form-control" id="magnitude">
+                </td>
+              </tr>
+              <tr>
+                <td><label for="albedo" class="mt-3 form-label">Albedo:</label></td>
+                <td><input type="text" class="mt-3 form-control" id="albedo">
+                </td>
+              </tr>
+            </tbody>
+          </table>

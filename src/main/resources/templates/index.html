@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<body>
+  <div class="container">
+    <h2 class="text-center mt-5">The Solar System</h2>
+    <div row justify-content-center>
+      <div class="col-auto">
+      <table class="table mx-auto w-25">
+        <tbody>
+          <tr><td class="text-center"> <a href="/addplanet" class="btn btn-primary">Add planet</a></td></tr>
+          <tr th:each="planet : ${planets}">
+            <td class="text-center">
+            <a th:href="@{/planets/__${planet.id}__}" th:text="${planet.name}"/></a>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
