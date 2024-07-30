@@ -334,6 +334,28 @@ class PlanetTests {
     }
 
     @Test
+    void SOL_T149_initializePlanetFromDaoIdNameAndOtherwiseWithNullFields(){
+
+        PlanetDao dao = new PlanetDao();
+        dao.setId("10");
+        dao.setName("Planet X");
+        Planet sut = new Planet(dao);
+
+        assertEquals(10,sut.getId());
+        assertEquals("Planet X",sut.getName());
+        assertEquals(0.0,sut.getDiameter());
+        assertEquals("",sut.getMass());
+        assertEquals(0.0,sut.getInclination());
+        assertEquals(0.0,sut.getEccentricity());
+        assertEquals(0.0,sut.getSemiMajorAxis());
+        assertEquals(0.0,sut.getSurfaceGravity());
+        assertEquals(0.0,sut.getOrbitalPeriod());
+        assertEquals(0.0,sut.getSiderealRotation());
+        assertEquals(0,sut.getSatellites());
+
+    }
+
+    @Test
     void SOL_T109_initializeFromConvenice(){
 
         Planet sut = new Planet(3, "Planet2", 3.0);

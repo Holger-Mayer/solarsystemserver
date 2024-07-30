@@ -197,12 +197,17 @@ public class Planet implements Identifiable{
 
 
     private Double toDouble(String string){
+        if (string.isEmpty()) {
+            return 0.0;
+        }
 
         return Double.parseDouble(string);
     }
 
     private Integer toInteger(String string){
-        
+         if (string.isEmpty()) {
+            return 0;
+        }
         return Integer.parseInt(string);
     }
     

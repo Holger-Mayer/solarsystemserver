@@ -8,17 +8,17 @@ package de.hmayer.solarsystemserver.model.dao;
  * @author Holger Mayer
  */
 public class PlanetDao {
-    private String id;
-    private String  name;
-    private String  diameter;
-    private String  mass;
-    private String  inclination;
-    private String  eccentricity;
-    private String  semimajoraxis;
-    private String  surfacegravity;
-    private String  orbitalperiod;
-    private String  siderealrotation;
-    private String  satellites;
+    private String id="";
+    private String  name="";
+    private String  diameter="";
+    private String  mass="";
+    private String  inclination="";
+    private String  eccentricity="";
+    private String  semimajoraxis="";
+    private String  surfacegravity="";
+    private String  orbitalperiod="";
+    private String  siderealrotation="";
+    private String  satellites ="";
 
     public PlanetDao(){
         /*
