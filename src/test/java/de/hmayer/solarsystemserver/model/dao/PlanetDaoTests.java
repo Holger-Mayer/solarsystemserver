@@ -20,17 +20,17 @@ class PlanetDaoTests {
 
         PlanetDao sut = new PlanetDao();
 
-        assertNull(sut.getId());
-        assertNull(sut.getName());
-        assertNull(sut.getDiameter());
-        assertNull(sut.getMass());
-        assertNull(sut.getInclination());
-        assertNull(sut.getEccentricity());
-        assertNull(sut.getSemimajoraxis());
-        assertNull(sut.getSurfacegravity());
-        assertNull(sut.getOrbitalperiod());
-        assertNull(sut.getSiderealrotation());
-        assertNull(sut.getSatellites());
+        assertEquals("",sut.getId());
+        assertEquals("",sut.getName());
+        assertEquals("",sut.getDiameter());
+        assertEquals("",sut.getMass());
+        assertEquals("",sut.getInclination());
+        assertEquals("",sut.getEccentricity());
+        assertEquals("",sut.getSemimajoraxis());
+        assertEquals("",sut.getSurfacegravity());
+        assertEquals("",sut.getOrbitalperiod());
+        assertEquals("",sut.getSiderealrotation());
+        assertEquals("",sut.getSatellites());
 
     }
 
